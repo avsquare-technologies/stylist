@@ -1,9 +1,12 @@
 <?php
-namespace FloatingPoint\Stylist\Facades;
+namespace Mehedi\Stylist\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 class StylistFacade extends Facade
 {
-	public static function getFacadeAccessor() { return 'stylist'; }
+    public static function getFacadeAccessor()
+    {
+        return 'stylist';
+    }
 }

@@ -16,7 +16,7 @@ Via the usual composer command:
 This step is not required because of the laravel package auto discovery<br>
 <s>Then, make sure the Stylist service provider is made available to your application by updating your config/app.php:
 
-    FloatingPoint\Stylist\StylistServiceProvider,
+    Mehedi\Stylist\StylistServiceProvider,
 
 </s>
 You're now ready to go!
@@ -76,7 +76,7 @@ need to ensure that before you publish, your themes are available and registered
 
     public function register()
     {
-        Stylist::registerPaths(Stylist::discover('/path/to/my/themes'));    
+        Stylist::registerPaths(Stylist::discover('/path/to/my/themes'));
     }
 
 Then simply run the publish command:

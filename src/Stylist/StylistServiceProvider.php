@@ -1,13 +1,12 @@
 <?php
-namespace FloatingPoint\Stylist;
 
-use Cache;
-use Config;
-use FloatingPoint\Stylist\Html\ThemeHtmlBuilder;
-use FloatingPoint\Stylist\Theme\Loader;
-use FloatingPoint\Stylist\Theme\Stylist;
-use Illuminate\Support\AggregateServiceProvider;
+namespace Mehedi\Stylist;
+
+use Mehedi\Stylist\Theme\Loader;
+use Mehedi\Stylist\Theme\Stylist;
 use Illuminate\Foundation\AliasLoader;
+use Mehedi\Stylist\Html\ThemeHtmlBuilder;
+use Illuminate\Support\AggregateServiceProvider;
 
 class StylistServiceProvider extends AggregateServiceProvider
 {
@@ -68,8 +67,7 @@ class StylistServiceProvider extends AggregateServiceProvider
      */
     protected function registerStylist()
     {
-        $this->app->singleton('stylist', function($app)
-        {
+        $this->app->singleton('stylist', function ($app) {
             return new Stylist(new Loader, $app);
         });
     }
@@ -79,8 +77,7 @@ class StylistServiceProvider extends AggregateServiceProvider
      */
     protected function registerThemeBuilder()
     {
-        $this->app->singleton('stylist.theme', function($app)
-        {
+        $this->app->singleton('stylist.theme', function ($app) {
             return new ThemeHtmlBuilder($app['html'], $app['url']);
         });
     }
@@ -92,10 +89,10 @@ class StylistServiceProvider extends AggregateServiceProvider
     {
         $aliasLoader = AliasLoader::getInstance();
 
-        $aliasLoader->alias('Stylist', 'FloatingPoint\Stylist\Facades\StylistFacade');
-        $aliasLoader->alias('Theme', 'FloatingPoint\Stylist\Facades\ThemeFacade');
+        $aliasLoader->alias('Stylist', 'Mehedi\Stylist\Facades\StylistFacade');
+        $aliasLoader->alias('Theme', 'Mehedi\Stylist\Facades\ThemeFacade');
 
-        $this->app->alias('stylist', 'FloatingPoint\Stylist\Theme\Stylist');
+        $this->app->alias('stylist', 'Mehedi\Stylist\Theme\Stylist');
     }
 
     /**
@@ -104,7 +101,7 @@ class StylistServiceProvider extends AggregateServiceProvider
     private function registerCommands()
     {
         $this->commands(
-            'FloatingPoint\Stylist\Console\PublishAssetsCommand'
+            'Mehedi\Stylist\Console\PublishAssetsCommand'
         );
     }
 
@@ -130,5 +127,4 @@ class StylistServiceProvider extends AggregateServiceProvider
             'Theme'
         ]);
     }
-
 }

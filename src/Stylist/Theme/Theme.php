@@ -1,9 +1,8 @@
 <?php
-namespace FloatingPoint\Stylist\Theme;
+namespace Mehedi\Stylist\Theme;
 
-use File;
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
+use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Class Theme
@@ -11,7 +10,7 @@ use Illuminate\Support\Str;
  * Theme objects are just dumb little DTOs, used as a reference point for collecting information
  * about themes, namely their name, description and parent details.
  *
- * @package FloatingPoint\Stylist\Theme
+ * @package Mehedi\Stylist\Theme
  */
 class Theme implements Arrayable
 {

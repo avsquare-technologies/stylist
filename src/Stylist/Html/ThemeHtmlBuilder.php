@@ -1,9 +1,10 @@
 <?php
-namespace FloatingPoint\Stylist\Html;
+
+namespace Mehedi\Stylist\Html;
 
 use Collective\Html\HtmlBuilder;
-use FloatingPoint\Stylist\Facades\StylistFacade;
 use Illuminate\Routing\UrlGenerator;
+use Mehedi\Stylist\Facades\StylistFacade;
 
 class ThemeHtmlBuilder
 {

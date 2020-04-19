@@ -1,10 +1,10 @@
 <?php
-namespace FloatingPoint\Stylist\Console;
 
-use FloatingPoint\Stylist\Theme\Theme;
+namespace Mehedi\Stylist\Console;
+
 use Stylist;
 use Illuminate\Console\Command;
-use Illuminate\Contracts\Container\Container;
+use Mehedi\Stylist\Theme\Theme;
 use Symfony\Component\Console\Input\InputArgument;
 
 class PublishAssetsCommand extends Command
