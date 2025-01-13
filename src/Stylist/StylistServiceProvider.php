@@ -11,15 +11,6 @@ use Illuminate\Support\AggregateServiceProvider;
 class StylistServiceProvider extends AggregateServiceProvider
 {
     /**
-     * Stylist provides the HtmlServiceProvider for ease-of-use.
-     *
-     * @var array
-     */
-    protected $providers = [
-        'Collective\Html\HtmlServiceProvider'
-    ];
-
-    /**
      * Registers the various bindings required by other packages.
      */
     public function register()
