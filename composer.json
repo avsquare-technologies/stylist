@@ -19,9 +19,6 @@
             "email": "MehediDracula@gmail.com"
         }
     ],
-    "require": {
-        "laravelcollective/html": "^6.0"
-    },
     "autoload": {
         "psr-4": {
             "Mehedi\\Stylist\\": "src/Stylist"
