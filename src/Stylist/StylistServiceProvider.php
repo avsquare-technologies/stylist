@@ -5,7 +5,6 @@ namespace Mehedi\Stylist;
 use Mehedi\Stylist\Theme\Loader;
 use Mehedi\Stylist\Theme\Stylist;
 use Illuminate\Foundation\AliasLoader;
-use Mehedi\Stylist\Html\ThemeHtmlBuilder;
 use Illuminate\Support\AggregateServiceProvider;
 
 class StylistServiceProvider extends AggregateServiceProvider
@@ -20,7 +19,6 @@ class StylistServiceProvider extends AggregateServiceProvider
         $this->registerConfiguration();
         $this->registerStylist();
         $this->registerAliases();
-        $this->registerThemeBuilder();
         $this->registerCommands();
     }
 
@@ -59,17 +57,7 @@ class StylistServiceProvider extends AggregateServiceProvider
     protected function registerStylist()
     {
         $this->app->singleton('stylist', function ($app) {
-            return new Stylist(new Loader, $app);
-        });
-    }
-
-    /**
-     * Create the binding necessary for the theme html builder.
-     */
-    protected function registerThemeBuilder()
-    {
-        $this->app->singleton('stylist.theme', function ($app) {
-            return new ThemeHtmlBuilder($app['html'], $app['url']);
+            return new Stylist(new Loader(), $app);
         });
     }
 
@@ -78,10 +66,7 @@ class StylistServiceProvider extends AggregateServiceProvider
      */
     private function registerAliases()
     {
-        $aliasLoader = AliasLoader::getInstance();
-
-        $aliasLoader->alias('Stylist', 'Mehedi\Stylist\Facades\StylistFacade');
-        $aliasLoader->alias('Theme', 'Mehedi\Stylist\Facades\ThemeFacade');
+        AliasLoader::getInstance()->alias('Stylist', 'Mehedi\Stylist\Facades\StylistFacade');
 
         $this->app->alias('stylist', 'Mehedi\Stylist\Theme\Stylist');
     }
@@ -113,9 +98,6 @@ class StylistServiceProvider extends AggregateServiceProvider
      */
     public function provides()
     {
-        return array_merge(parent::provides(), [
-            'Stylist',
-            'Theme'
-        ]);
+        return array_merge(parent::provides(), ['Stylist']);
     }
 }
